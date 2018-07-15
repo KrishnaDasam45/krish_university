@@ -15,17 +15,13 @@ class UsersController < ApplicationController
   end
 
   def create
-  	binding.pry
     @user = User.new(user_params)
     @user.randmonpwd
-    binding.pry
     respond_to do |format|
       if @user.save
-      	binding.pry
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-      	binding.pry
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -59,7 +55,6 @@ class UsersController < ApplicationController
   end
 
     def list_sub_partners
-      binding.pry
     if params[:qualification_id].present?
         if params[:qualification_id] == "1"          
           @partners = Course.where("qualification_id = ?",1)
@@ -68,7 +63,6 @@ class UsersController < ApplicationController
         elsif params[:qualification_id] == "3"
           @partners = Course.where("qualification_id = ?",3)
         end 
-        binding.pry
         if !params[:payment_id].blank?
           selected_id = User.find(params[:payment_id]).course_id
           @selected = Course.find(selected_id).name if !selected_id.nil?
