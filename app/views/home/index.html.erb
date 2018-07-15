@@ -1,3 +1,5 @@
+<div>
+
   Welcome to
 <%= Role.find(current_user.role_id).name.capitalize if current_user.role_id %> Dashboard
 <br/>
@@ -8,3 +10,4 @@
 <br/>
 <%#= link_to('<i class="fa fa-power-off"></i> Logout'.html_safe, destroy_user_session_path, method: :delete)  %>
 <br/>
+</div>

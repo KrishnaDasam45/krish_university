@@ -18,8 +18,9 @@
 
   
   <%= render 'layouts/navbar' %>
+  <div style="min-height: 540px;">
     <%= yield %>
-    
+  </div>
 
 
 
@@ -64,4 +65,5 @@ if($('#my_qualification option:selected').val()){
 
 </script>
   </body>
+  <footer class="main-footer"> Copyright © <%=DateTime.now.year%> Krish University. All rights reserved.<b>Developed by Krishna Dasam</b></footer>
 </html>
