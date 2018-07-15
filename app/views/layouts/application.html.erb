@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KrishUniversity</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+
+
+
+
+
+  
+  <%= render 'layouts/navbar' %>
+    <%= yield %>
+    
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+$('.datepicker').datepicker({
+      format: "dd/mm/yyyy"
+    }).on('change', function(){
+        $('.datepicker-dropdown').hide();
+    });
+  });
+
+
+$('#my_qualification').on("change",function(){
+    return $.ajax({
+      url: "/users/list_sub_partners",
+      type: "GET",
+      dataType: "script",
+      data: {
+        qualification_id: $('#my_qualification option:selected').val(),
+        payment_id: $('#my_courses').val()
+      }
+    });
+  });
+if($('#my_qualification option:selected').val()){
+  alert('value presentsss');
+
+  // return $.ajax({
+  //   url: "/users/list_sub_partners",
+  //   type: "GET",
+  //   dataType: "script",
+  //   data: {
+  //   qualification_id: $('#my_qualification option:selected').val(),
+  //   payment_id: $('#my_courses').val()
+  //   }
+  // });
+}
+
+
+
+
+
+</script>
+  </body>
+</html>

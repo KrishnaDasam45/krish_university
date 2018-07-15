@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: krish_university
+  host: localhost
+  pool: 5
+  port: 5432
+  username: postgres
+  password: postgres_007%

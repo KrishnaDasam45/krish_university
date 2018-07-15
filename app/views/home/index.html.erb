@@ -1,0 +1,10 @@
+  Welcome to
+<%= Role.find(current_user.role_id).name.capitalize if current_user.role_id %> Dashboard
+<br/>
+
+<%#= link_to('<i class="fa fa-power-off"></i> Courses'.html_safe, courses_path)  %>
+<br/>
+<%#= link_to('<i class="fa fa-power-off"></i> Users'.html_safe, users_path)  %>
+<br/>
+<%#= link_to('<i class="fa fa-power-off"></i> Logout'.html_safe, destroy_user_session_path, method: :delete)  %>
+<br/>

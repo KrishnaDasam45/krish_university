@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Qualification:</strong>
+  <%= Qualification.find(@course.qualification_id).name if @course.qualification_id %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @course.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course),class: "btn btn-warning" %> |
+<%= link_to 'Back', courses_path,class: "btn btn-primary" %>

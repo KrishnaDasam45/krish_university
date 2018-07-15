@@ -1,0 +1,12 @@
+$('#my_courses').empty();
+$('#my_courses').append($('<option value="">Select</option>'));
+<% if @partners.present? %>
+	<% @partners.each do |part| %>
+		<% if @selected == part.name %>
+		 $('#my_courses').append($('<option value="<%= part.id %>"selected><%= part.name %></option>'));
+		<% else %>
+		 $('#my_courses').append($('<option value="<%= part.id %>"><%= part.name %></option>'));
+		<% end %>
+	<% end %>
+<% end %>
+

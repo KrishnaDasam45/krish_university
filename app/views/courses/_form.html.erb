@@ -1,0 +1,82 @@
+
+  
+<section class="content">
+  <div class="row" style="margin: 15px;">
+    <div class="col-md-12" >
+
+
+<%= form_with(model: course, local: true) do |form| %>
+          <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name,:class=>"form-control" %>
+            </div>     
+
+            <div class="field">
+              <%= form.label :description %>
+              <%= form.text_area :description,:class=>"form-control"  %>
+            </div>   
+
+
+            <div class="field">
+              <%= form.label :qualification %>
+              <%= form.collection_select :qualification_id,Qualification.all,:id,:name, {:include_blank => 'Select'},:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :is_active %>
+              <%= form.check_box :is_active %>
+            </div>
+
+            
+
+
+            
+
+
+          </div>
+
+
+
+
+
+
+        </div>
+
+        
+       
+        
+        
+        
+
+        
+
+        <div class="actions">
+          <%#= form.submit %>
+          <%= form.submit "Save",class: "btn btn-success"  %>
+                <%= link_to 'Back', courses_path,class: "btn btn-primary" %>
+
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</section>
+
+

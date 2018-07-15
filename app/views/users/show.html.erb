@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= Course.find(@user.course_id).name if @user.course_id%>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= Role.find(@user.role_id).name if @user.role_id%>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @user.is_active %>
+</p>
+
+
+<p>
+  <strong>DOB:</strong>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+
+<p>
+  <strong>Qualification:</strong>
+  <%= Qualification.find(@user.qualification_id).name if @user.qualification_id %>
+</p>
+
+
+
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
+  
+
+<p>
+  <strong>Aadhar No:</strong>
+  <%= @user.aadhar_no %>
+</p>  
+
+
+
+
+<%= link_to 'Edit', edit_user_path(@user),class: "btn btn-warning" %> |
+<%= link_to 'Back', users_path,class: "btn btn-primary" %>

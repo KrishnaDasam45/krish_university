@@ -1,0 +1,125 @@
+
+<section class="content">
+  <div class="row" style="margin: 15px;">
+    <div class="col-md-12" >
+
+
+      <%= form_with(model: user, local: true) do |form| %>
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name,:class=>"form-control" %>
+            </div>        
+
+
+            <div class="field">
+              <%= form.label :qualification %>
+              <%#= form.collection_select :qualification_id,@qualifications,:id,:name, {:include_blank => 'Select'},:class=>"form-control" %>
+              <%= form.collection_select :qualification_id, @qualifications, :id, :name, {:include_blank => 'Select'},:selected=>params[:qualification_id] ,:class=>"form-control",id:"my_qualification" %>
+               <%#= f.collection_select :partner_type, partner_types, :first, :last, {:include_blank => 'Select'},:selected=>params[:partner_type] ,:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :role_id %>
+              
+             <%= form.collection_select :role_id,@roles,:id,:name, {:include_blank => 'Select'},:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :mobile %>
+              <%= form.text_field :mobile,:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :address %>
+              <%= form.text_area :address,:class=>"form-control" %>
+            </div>
+
+
+            
+
+
+          </div>
+
+
+
+
+          <div class="col-md-6">
+
+            <div class="field">
+              <%= form.label :email %>
+              <%= form.text_field :email,:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :course_id %>
+              <%= form.collection_select :course_id,[],:id,:name,{:include_blank=>"Select"},:class=>"form-control",:id=>"my_courses"%>
+              <%= form.hidden_field :id %>
+              <%#= form.collection_select :course_id,@courses,:id,:name, {:include_blank => 'Select'},:class=>"form-control" %>
+            </div>
+
+           
+
+            <div class="field">
+              <%= form.label :dob %>
+              <%#= form.text_field :dob, id: :course_name %>
+               <%= form.text_field :dob,class: "form-control datepicker",required:true %>
+            </div>
+
+            <div class="field">
+              <%= form.label :aadhar_no %>
+              <%= form.text_field :aadhar_no,:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :gender %>
+              <%#= form.text_field :gender, id: :course_name %>
+              <%= form.collection_select :gender, get_gender, :first, :last, {:include_blank => 'Select'},:selected=>params[:gender],:class=>"form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :is_active %>
+              <%= form.check_box :is_active, id: :course_is_active %>
+            </div>
+
+
+
+          </div>
+
+
+        </div>
+
+        
+       
+        
+        
+        
+
+        
+
+        <div class="actions">
+          <%#= form.submit %>
+          <%= form.submit "Save",class: "btn btn-success"  %>
+                <%= link_to 'Back', users_path,class: "btn btn-primary" %>
+
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</section>
+
